@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5f0e8" />
+  <meta name="description" content="Album kenangan dan ucapan ulang tahun untuk istriku." />
+  <title>Untuk Istriku ❤️</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap');
+
+    :root {
+      --cream: #f7f2e9;
+      --paper: #fffdf8;
+      --sage: #7d8b72;
+      --sage-dark: #53604d;
+      --brown: #6b5a4b;
+      --text: #403a35;
+      --muted: #887c70;
+      --gold: #b89a67;
+      --line: rgba(83, 96, 77, .18);
+      --shadow: 0 18px 45px rgba(63, 52, 42, .13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: #514b43;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: .92;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.18) 45%, rgba(0,0,0,.72) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(92%, 680px);
+      margin: 0 auto;
+      padding: 0 0 52px;
+      color: white;
+    }
+
+    .eyebrow {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2rem, 9vw, 4rem);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 13vw, 6rem);
+      font-weight: 600;
+      line-height: .88;
+      max-width: 650px;
+    }
+
+    .hero-line {
+      width: 72px;
+      height: 1px;
+      background: rgba(255,255,255,.75);
+      margin: 25px 0 20px;
+    }
+
+    .hero-text {
+      max-width: 560px;
+      font-size: .94rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+    }
+
+    .scroll-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 27px;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      opacity: .85;
+    }
+
+    .scroll-hint span {
+      width: 25px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .scroll-hint span::after {
+      content: "";
+      width: 4px;
+      height: 7px;
+      background: white;
+      border-radius: 4px;
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll 1.6s infinite;
+    }
+
+    @keyframes scroll {
+      0%,100% { transform: translate(-50%,0); opacity: .2; }
+      50% { transform: translate(-50%,10px); opacity: 1; }
+    }
+
+    /* ---------- SECTION ---------- */
+    .section {
+      position: relative;
+      width: min(100%, 760px);
+      margin: auto;
+      padding: 75px 16px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .section-title .small {
+      color: var(--sage-dark);
+      font-size: .74rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .section-title h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.6rem, 12vw, 4.5rem);
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.05;
+      margin: 5px 0 10px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.7;
+    }
+
+    /* ---------- TIMELINE ---------- */
+    .memory {
+      position: relative;
+      margin-bottom: 78px;
+    }
+
+    .memory:last-child {
+      margin-bottom: 0;
+    }
+
+    .memory::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .memory-head {
+      position: relative;
+      padding-left: 32px;
+      margin-bottom: 22px;
+    }
+
+    .memory-dot {
+      position: absolute;
+      left: 2px;
+      top: 4px;
+      width: 15px;
+      height: 15px;
+      background: var(--cream);
+      border: 2px solid var(--sage);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px var(--cream);
+    }
+
+    .memory-number {
+      display: block;
+      color: var(--sage-dark);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .memory h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.9rem, 8vw, 2.7rem);
+      line-height: 1;
+      font-weight: 600;
+    }
+
+    .memory-date {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .76rem;
+    }
+
+    .memory-story {
+      margin: 13px 0 24px 32px;
+      color: var(--muted);
+      font-size: .86rem;
+      line-height: 1.8;
+    }
+
+    /* ---------- PHOTO GRID ---------- */
+    .photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-left: 32px;
+    }
+
+    .photo-card {
+      position: relative;
+      background: var(--paper);
+      padding: 6px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+      overflow: hidden;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-4px) rotate(0deg) !important;
+      box-shadow: 0 22px 50px rgba(63, 52, 42, .2);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* FOTO UTAMA: memenuhi lebar area HP */
+    .photo-card.full {
+      grid-column: 1 / -1;
+    }
+
+    .photo-card.full img {
+      aspect-ratio: 4 / 3;
+    }
+
+    .caption {
+      padding: 10px 7px 7px;
+      color: var(--muted);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .tape {
+      position: absolute;
+      z-index: 2;
+      width: 58px;
+      height: 18px;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      background: rgba(216, 201, 161, .72);
+      filter: blur(.1px);
+    }
+
+    .photo-card:nth-child(2n) {
+      transform: rotate(1.1deg);
+    }
+
+    .photo-card:nth-child(3n) {
+      transform: rotate(-1.1deg);
+    }
+
+    .photo-card.full {
+      transform: rotate(-.4deg);
+    }
+
+    /* ---------- QUOTE ---------- */
+    .quote {
+      position: relative;
+      margin: 15px 0 75px;
+      padding: 42px 27px;
+      background: rgba(255,253,248,.72);
+      border: 1px solid rgba(83,96,77,.1);
+      text-align: center;
+      border-radius: 2px;
+    }
+
+    .quote::before,
+    .quote::after {
+      content: "♡";
+      position: absolute;
+      color: var(--sage);
+      font-size: 1.8rem;
+    }
+
+    .quote::before {
+      left: 15px;
+      top: 12px;
+    }
+
+    .quote::after {
+      right: 15px;
+      bottom: 8px;
+    }
+
+    .quote p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.5rem, 6vw, 2.2rem);
+      line-height: 1.35;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .76rem;
+      line-height: 1.7;
+    }
+
+    /* ---------- FINAL ---------- */
+    .ending {
+      position: relative;
+      padding: 100px 20px 110px;
+      text-align: center;
+      overflow: hidden;
+      background: var(--sage-dark);
+      color: white;
+    }
+
+    .ending .ornament {
+      font-size: 2rem;
+      opacity: .8;
+      margin-bottom: 12px;
+    }
+
+    .ending h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3rem, 14vw, 5.8rem);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .ending p {
+      width: min(100%, 580px);
+      margin: 25px auto 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.88);
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+    }
+
+    /* ---------- LIGHTBOX ---------- */
+    .lightbox {
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(20,18,16,.94);
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 88svh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 20px 80px rgba(0,0,0,.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 17px;
+      right: 20px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      color: white;
+      background: rgba(255,255,255,.08);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 520px) {
+      .section {
+        padding: 62px 10px;
+      }
+
+      .memory {
+        margin-bottom: 65px;
+      }
+
+      .memory-head {
+        padding-left: 28px;
+      }
+
+      .memory-story,
+      .photos {
+        margin-left: 28px;
+      }
+
+      .photos {
+        gap: 8px;
+      }
+
+      .photo-card {
+        padding: 5px;
+      }
+
+      .caption {
+        font-size: .9rem;
+      }
+    }
+
+    @media (min-width: 700px) {
+      .section {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .photos {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       1. HERO
+       Ganti foto dengan: photos/hero.jpg
+       ========================================================= -->
+  <header class="hero">
+    <img class="hero-photo" src="photos/hero.jpg" alt="Kenangan kita" />
+
+    <div class="hero-content">
+      <div class="eyebrow">Selamat Ulang Tahun</div>
+      <h1>Istriku<br />Tercinta ❤️</h1>
+
+      <div class="hero-line"></div>
+
+      <p class="hero-text">
+        Terima kasih telah hadir dalam hidupku, menjadi bagian dari setiap
+        cerita, tawa, dan perjuangan. Semoga di hari spesial ini, kamu selalu
+        bahagia, sehat, dan selalu dalam lindungan Allah.
+      </p>
+
+      <div class="scroll-hint">
+        <span></span>
+        Scroll untuk melihat cerita kita
+      </div>
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       2. ALBUM
+       Cara menambah foto:
+       - Foto utama gunakan class="full"
+       - Foto berikutnya otomatis maksimal 2 kolom
+       - Ganti nama file di src="photos/..."
+       ========================================================= -->
+  <main class="section">
+
+    <div class="section-title">
+      <div class="small">Sebuah perjalanan</div>
+      <h2>Album Kenangan Kita</h2>
+      <p>
+        Dari awal pertemuan, melewati banyak cerita,<br />
+        hingga hari ini... dan seterusnya.
+      </p>
+    </div>
+
+
+    <!-- ==================== 01 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">01 — Awal Pertemuan</span>
+        <h3>Semua berawal dari kita</h3>
+        <span class="memory-date">2018 — 2019</span>
+      </div>
+
+      <p class="memory-story">
+        Mungkin saat itu kita tidak pernah menyangka bahwa sebuah pertemuan
+        sederhana akan membawa kita sejauh ini.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/01.jpg" alt="Awal pertemuan" loading="lazy" />
+          <div class="caption">Foto yang mengingatkanku pada awal semuanya.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/02.jpg" alt="Kenangan 2" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/03.jpg" alt="Kenangan 3" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 02 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">02 — Masa Bersama</span>
+        <h3>Hari-hari yang indah</h3>
+        <span class="memory-date">2019 — 2020</span>
+      </div>
+
+      <p class="memory-story">
+        Ada begitu banyak tawa, cerita, perjalanan, dan hal-hal sederhana
+        yang sampai sekarang masih tersimpan indah di ingatan.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/04.jpg" alt="Masa bersama" loading="lazy" />
+          <div class="caption">Bahagia ternyata sesederhana bersamamu.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/05.jpg" alt="Kenangan 5" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/06.jpg" alt="Kenangan 6" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 03 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">03 — Menikah</span>
+        <h3>Hari yang paling indah</h3>
+        <span class="memory-date">2021</span>
+      </div>
+
+      <p class="memory-story">
+        Hari ketika sebuah perjalanan baru dimulai. Bukan lagi tentang aku
+        dan kamu, tetapi tentang kita.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/07.jpg" alt="Hari pernikahan" loading="lazy" />
+          <div class="caption">Aku memilihmu, dan akan terus memilihmu.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/08.jpg" alt="Pernikahan 2" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/09.jpg" alt="Pernikahan 3" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+
+    <div class="quote">
+      <p>
+        “Dari sekian banyak hal baik yang terjadi dalam hidupku,
+        bertemu dan hidup bersamamu adalah salah satu yang paling aku syukuri.”
+      </p>
+      <small>— Untuk perempuan yang selalu ingin aku bahagiakan</small>
+    </div>
+
+
+    <!-- ==================== 04 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">04 — Kehidupan Bersama</span>
+        <h3>Rumah adalah kamu</h3>
+        <span class="memory-date">2021 — Sekarang</span>
+      </div>
+
+      <p class="memory-story">
+        Kita belajar memahami, saling menguatkan, melewati hari baik dan
+        hari sulit, lalu tetap memilih untuk berjalan bersama.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/10.jpg" alt="Kehidupan bersama" loading="lazy" />
+          <div class="caption">Di mana pun bersamamu, rasanya seperti pulang.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/11.jpg" alt="Kenangan 11" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/12.jpg" alt="Kenangan 12" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/13.jpg" alt="Kenangan 13" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/14.jpg" alt="Kenangan 14" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 05 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">05 — Buah Hati</span>
+        <h3>Hadiah terindah</h3>
+        <span class="memory-date">2024 — Sekarang</span>
+      </div>
+
+      <p class="memory-story">
+        Kehadiran buah hati membuat cerita kita semakin lengkap.
+        Sekarang ada lebih banyak alasan untuk tersenyum dan bersyukur.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/15.jpg" alt="Keluarga kecil kita" loading="lazy" />
+          <div class="caption">Keluarga kecil yang selalu ingin aku jaga.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/16.jpg" alt="Buah hati 2" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/17.jpg" alt="Buah hati 3" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/18.jpg" alt="Buah hati 4" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/19.jpg" alt="Buah hati 5" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==================== 06 ==================== -->
+    <section class="memory">
+      <div class="memory-head">
+        <div class="memory-dot"></div>
+        <span class="memory-number">06 — Hari Ini & Selamanya</span>
+        <h3>Masih kamu</h3>
+        <span class="memory-date">Hari ini — seterusnya</span>
+      </div>
+
+      <p class="memory-story">
+        Setelah semua yang kita lalui, satu hal yang tidak berubah:
+        aku masih ingin menjalani hari-hari berikutnya bersamamu.
+      </p>
+
+      <div class="photos">
+        <div class="photo-card full">
+          <div class="tape"></div>
+          <img src="photos/20.jpg" alt="Kita hari ini" loading="lazy" />
+          <div class="caption">Dan semoga foto-foto berikutnya masih tentang kita.</div>
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/21.jpg" alt="Kenangan 21" loading="lazy" />
+        </div>
+
+        <div class="photo-card">
+          <img src="photos/22.jpg" alt="Kenangan 22" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       3. PENUTUP
+       ========================================================= -->
+  <footer class="ending">
+    <div class="ornament">♡</div>
+
+    <h2>Selamat Ulang Tahun,<br />Sayang</h2>
+
+    <p>
+      Terima kasih sudah menjadi rumah, tempatku pulang,
+      teman dalam setiap perjalanan, dan orang yang ingin
+      terus aku bahagiakan.
+      <br /><br />
+      Semoga Allah selalu menjaga langkahmu, memberikan kesehatan,
+      kebahagiaan, dan umur yang penuh berkah.
+      <br /><br />
+      Aku mencintaimu, hari ini, besok, dan seterusnya.
+    </p>
+
+    <div class="signature">Dari suamimu, dengan cinta ❤️</div>
+  </footer>
+
+
+  <!-- LIGHTBOX FOTO -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close" id="closeLightbox" aria-label="Tutup">×</button>
+    <img id="lightboxImage" src="" alt="Foto diperbesar" />
+  </div>
+
+
+  <script>
+    // Klik foto untuk melihat versi besar
+    const cards = document.querySelectorAll(".photo-card");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const closeLightbox = document.getElementById("closeLightbox");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const img = card.querySelector("img");
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeViewer() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    closeLightbox.addEventListener("click", closeViewer);
+
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) closeViewer();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape") closeViewer();
+    });
+  </script>
+
+</body>
+</html>
