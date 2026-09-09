@@ -263,7 +263,7 @@
       border-radius: 8px;
       box-shadow: var(--shadow);
       cursor: pointer;
-      transition: transform .3s ease, box-shadow .3s ease;
+      transition: transform .3s ease, box-shadow .3s ease, opacity .8s ease;
       overflow: hidden;
     }
 
@@ -482,6 +482,45 @@
         gap: 15px;
       }
     }
+
+    /* ---------- FADE-ON-SCROLL ANIMATION ----------
+       Catatan: hanya opacity + transform (translateY) yang dipakai,
+       sehingga layout/ruang elemen tidak berubah sama sekali.
+       Untuk elemen yang sudah punya efek transform sendiri
+       (mis. .photo-card dengan rotasi), animasinya dibuat
+       opacity-only supaya tidak menimpa rotasinya.
+    ---------------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .9s cubic-bezier(.16,.84,.44,1),
+                  transform .9s cubic-bezier(.16,.84,.44,1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-fade {
+      opacity: 0;
+      transition: opacity .9s ease;
+      will-change: opacity;
+    }
+
+    .reveal-fade.is-visible {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal-fade {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+    }
   </style>
 </head>
 
@@ -491,7 +530,7 @@
        Simpan lagu dengan nama: photos/music.mp3
        atau ubah nama file pada src di bawah.
   -->
-  <audio id="bgMusic" src="photos/music.mp3" autoplay loop preload="auto"></audio>
+  <audio id="bgMusic" src="photos/music.mp3" autoplay loop preload="auto" playsinline></audio>
 
 
   <!-- =========================================================
@@ -501,7 +540,7 @@
   <header class="hero">
     <img class="hero-photo" src="photos/hero.jpg" alt="Kenangan kita" />
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
       <div class="eyebrow">Selamat Ulang Tahun</div>
       <h1>Istriku<br />Tercinta ❤️</h1>
 
@@ -530,7 +569,7 @@
        ========================================================= -->
   <main class="section">
 
-    <div class="section-title">
+    <div class="section-title reveal">
       <div class="small">Sebuah perjalanan</div>
       <h2>Album Kenangan Kita</h2>
       <p>
@@ -542,30 +581,30 @@
 
     <!-- ==================== 01 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">01 — Awal Pertemuan</span>
         <h3>Semua berawal dari kita</h3>
         <span class="memory-date">2018 — 2019</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Mungkin saat itu kita tidak pernah menyangka bahwa sebuah pertemuan
         sederhana akan membawa kita sejauh ini.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/01.jpg" alt="Awal pertemuan" loading="lazy" />
           <div class="caption">Foto yang mengingatkanku pada awal semuanya.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/02.jpg" alt="Kenangan 2" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/03.jpg" alt="Kenangan 3" loading="lazy" />
         </div>
       </div>
@@ -574,30 +613,30 @@
 
     <!-- ==================== 02 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">02 — Masa Bersama</span>
         <h3>Hari-hari yang indah</h3>
         <span class="memory-date">2019 — 2020</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Ada begitu banyak tawa, cerita, perjalanan, dan hal-hal sederhana
         yang sampai sekarang masih tersimpan indah di ingatan.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/04.jpg" alt="Masa bersama" loading="lazy" />
           <div class="caption">Bahagia ternyata sesederhana bersamamu.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/05.jpg" alt="Kenangan 5" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/06.jpg" alt="Kenangan 6" loading="lazy" />
         </div>
       </div>
@@ -606,37 +645,37 @@
 
     <!-- ==================== 03 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">03 — Menikah</span>
         <h3>Hari yang paling indah</h3>
         <span class="memory-date">2021</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Hari ketika sebuah perjalanan baru dimulai. Bukan lagi tentang aku
         dan kamu, tetapi tentang kita.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/07.jpg" alt="Hari pernikahan" loading="lazy" />
           <div class="caption">Aku memilihmu, dan akan terus memilihmu.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/08.jpg" alt="Pernikahan 2" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/09.jpg" alt="Pernikahan 3" loading="lazy" />
         </div>
       </div>
     </section>
 
 
-    <div class="quote">
+    <div class="quote reveal">
       <p>
         “Dari sekian banyak hal baik yang terjadi dalam hidupku,
         bertemu dan hidup bersamamu adalah salah satu yang paling aku syukuri.”
@@ -647,38 +686,38 @@
 
     <!-- ==================== 04 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">04 — Kehidupan Bersama</span>
         <h3>Rumah adalah kamu</h3>
         <span class="memory-date">2021 — Sekarang</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Kita belajar memahami, saling menguatkan, melewati hari baik dan
         hari sulit, lalu tetap memilih untuk berjalan bersama.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/10.jpg" alt="Kehidupan bersama" loading="lazy" />
           <div class="caption">Di mana pun bersamamu, rasanya seperti pulang.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/11.jpg" alt="Kenangan 11" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/12.jpg" alt="Kenangan 12" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/13.jpg" alt="Kenangan 13" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/14.jpg" alt="Kenangan 14" loading="lazy" />
         </div>
       </div>
@@ -687,38 +726,38 @@
 
     <!-- ==================== 05 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">05 — Buah Hati</span>
         <h3>Hadiah terindah</h3>
         <span class="memory-date">2024 — Sekarang</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Kehadiran buah hati membuat cerita kita semakin lengkap.
         Sekarang ada lebih banyak alasan untuk tersenyum dan bersyukur.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/15.jpg" alt="Keluarga kecil kita" loading="lazy" />
           <div class="caption">Keluarga kecil yang selalu ingin aku jaga.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/16.jpg" alt="Buah hati 2" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/17.jpg" alt="Buah hati 3" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/18.jpg" alt="Buah hati 4" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/19.jpg" alt="Buah hati 5" loading="lazy" />
         </div>
       </div>
@@ -727,30 +766,30 @@
 
     <!-- ==================== 06 ==================== -->
     <section class="memory">
-      <div class="memory-head">
+      <div class="memory-head reveal">
         <div class="memory-dot"></div>
         <span class="memory-number">06 — Hari Ini & Selamanya</span>
         <h3>Masih kamu</h3>
         <span class="memory-date">Hari ini — seterusnya</span>
       </div>
 
-      <p class="memory-story">
+      <p class="memory-story reveal">
         Setelah semua yang kita lalui, satu hal yang tidak berubah:
         aku masih ingin menjalani hari-hari berikutnya bersamamu.
       </p>
 
       <div class="photos">
-        <div class="photo-card full">
+        <div class="photo-card full reveal-fade">
           <div class="tape"></div>
           <img src="photos/20.jpg" alt="Kita hari ini" loading="lazy" />
           <div class="caption">Dan semoga foto-foto berikutnya masih tentang kita.</div>
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/21.jpg" alt="Kenangan 21" loading="lazy" />
         </div>
 
-        <div class="photo-card">
+        <div class="photo-card reveal-fade">
           <img src="photos/22.jpg" alt="Kenangan 22" loading="lazy" />
         </div>
       </div>
@@ -763,11 +802,11 @@
        3. PENUTUP
        ========================================================= -->
   <footer class="ending">
-    <div class="ornament">♡</div>
+    <div class="ornament reveal">♡</div>
 
-    <h2>Selamat Ulang Tahun,<br />Sayang</h2>
+    <h2 class="reveal">Selamat Ulang Tahun,<br />Sayang</h2>
 
-    <p>
+    <p class="reveal">
       Terima kasih sudah menjadi rumah, tempatku pulang,
       teman dalam setiap perjalanan, dan orang yang ingin
       terus aku bahagiakan.
@@ -778,7 +817,7 @@
       Aku mencintaimu, hari ini, besok, dan seterusnya.
     </p>
 
-    <div class="signature">Dari suamimu, dengan cinta ❤️</div>
+    <div class="signature reveal">Dari suamimu, dengan cinta ❤️</div>
   </footer>
 
 
@@ -825,18 +864,59 @@
   </script>
 
 
+  <!-- ANIMASI FADE SAAT SCROLL -->
   <script>
-    // Musik otomatis saat halaman dibuka.
-    // Browser modern dapat memblokir autoplay bersuara.
+    document.addEventListener("DOMContentLoaded", () => {
+      const revealEls = document.querySelectorAll(".reveal, .reveal-fade");
+
+      // beri jeda kecil antar foto dalam satu grup supaya muncul bergantian
+      document.querySelectorAll(".photos").forEach(group => {
+        const groupCards = group.querySelectorAll(".photo-card");
+        groupCards.forEach((card, idx) => {
+          card.style.transitionDelay = `${idx * 90}ms`;
+        });
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px"
+      });
+
+      revealEls.forEach(el => observer.observe(el));
+    });
+  </script>
+
+
+  <!-- MUSIK OTOMATIS -->
+  <script>
+    // Musik dicoba diputar otomatis begitu halaman terbuka.
+    // Jika browser memblokir autoplay bersuara, musik akan
+    // otomatis diputar pada interaksi/scroll pertama pengguna.
     const bgMusic = document.getElementById("bgMusic");
     bgMusic.volume = 0.55;
 
+    let musicStarted = false;
+
     function startMusic() {
-      bgMusic.play().catch(() => {});
+      if (musicStarted) return;
+      bgMusic.play()
+        .then(() => { musicStarted = true; })
+        .catch(() => { /* akan dicoba lagi saat ada interaksi berikutnya */ });
     }
 
+    // Coba langsung saat halaman selesai dimuat
+    window.addEventListener("DOMContentLoaded", startMusic);
     window.addEventListener("load", startMusic);
-    ["click", "touchstart", "pointerdown", "scroll", "keydown"].forEach(eventName => {
+
+    // Coba lagi begitu ada scroll atau interaksi pertama
+    ["scroll", "click", "touchstart", "pointerdown", "keydown"].forEach(eventName => {
       window.addEventListener(eventName, startMusic, { once: true, passive: true });
     });
   </script>
