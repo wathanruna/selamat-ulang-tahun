@@ -487,6 +487,13 @@
 
 <body>
 
+  <!-- MUSIK LATAR
+       Simpan lagu dengan nama: photos/music.mp3
+       atau ubah nama file pada src di bawah.
+  -->
+  <audio id="bgMusic" src="photos/music.mp3" autoplay loop preload="auto"></audio>
+
+
   <!-- =========================================================
        1. HERO
        Ganti foto dengan: photos/hero.jpg
@@ -614,12 +621,12 @@
       <div class="photos">
         <div class="photo-card full">
           <div class="tape"></div>
-          <img src="photos/07.jpeg" alt="Hari pernikahan" loading="lazy" />
+          <img src="photos/07.jpg" alt="Hari pernikahan" loading="lazy" />
           <div class="caption">Aku memilihmu, dan akan terus memilihmu.</div>
         </div>
 
         <div class="photo-card">
-          <img src="photos/08.jpeg" alt="Pernikahan 2" loading="lazy" />
+          <img src="photos/08.jpg" alt="Pernikahan 2" loading="lazy" />
         </div>
 
         <div class="photo-card">
@@ -660,7 +667,7 @@
         </div>
 
         <div class="photo-card">
-          <img src="photos/11.jpeg" alt="Kenangan 11" loading="lazy" />
+          <img src="photos/11.jpg" alt="Kenangan 11" loading="lazy" />
         </div>
 
         <div class="photo-card">
@@ -668,7 +675,7 @@
         </div>
 
         <div class="photo-card">
-          <img src="photos/13.jpeg" alt="Kenangan 13" loading="lazy" />
+          <img src="photos/13.jpg" alt="Kenangan 13" loading="lazy" />
         </div>
 
         <div class="photo-card">
@@ -695,24 +702,24 @@
       <div class="photos">
         <div class="photo-card full">
           <div class="tape"></div>
-          <img src="photos/15.jpeg" alt="Keluarga kecil kita" loading="lazy" />
+          <img src="photos/15.jpg" alt="Keluarga kecil kita" loading="lazy" />
           <div class="caption">Keluarga kecil yang selalu ingin aku jaga.</div>
         </div>
 
         <div class="photo-card">
-          <img src="photos/16.jpeg" alt="Buah hati 2" loading="lazy" />
+          <img src="photos/16.jpg" alt="Buah hati 2" loading="lazy" />
         </div>
 
         <div class="photo-card">
-          <img src="photos/17.jpeg" alt="Buah hati 3" loading="lazy" />
+          <img src="photos/17.jpg" alt="Buah hati 3" loading="lazy" />
         </div>
 
         <div class="photo-card">
-          <img src="photos/18.jpeg" alt="Buah hati 4" loading="lazy" />
+          <img src="photos/18.jpg" alt="Buah hati 4" loading="lazy" />
         </div>
 
         <div class="photo-card">
-          <img src="photos/19.jpeg" alt="Buah hati 5" loading="lazy" />
+          <img src="photos/19.jpg" alt="Buah hati 5" loading="lazy" />
         </div>
       </div>
     </section>
@@ -735,7 +742,7 @@
       <div class="photos">
         <div class="photo-card full">
           <div class="tape"></div>
-          <img src="photos/20.jpeg" alt="Kita hari ini" loading="lazy" />
+          <img src="photos/20.jpg" alt="Kita hari ini" loading="lazy" />
           <div class="caption">Dan semoga foto-foto berikutnya masih tentang kita.</div>
         </div>
 
@@ -814,6 +821,23 @@
 
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") closeViewer();
+    });
+  </script>
+
+
+  <script>
+    // Musik otomatis saat halaman dibuka.
+    // Browser modern dapat memblokir autoplay bersuara.
+    const bgMusic = document.getElementById("bgMusic");
+    bgMusic.volume = 0.55;
+
+    function startMusic() {
+      bgMusic.play().catch(() => {});
+    }
+
+    window.addEventListener("load", startMusic);
+    ["click", "touchstart", "pointerdown", "scroll", "keydown"].forEach(eventName => {
+      window.addEventListener(eventName, startMusic, { once: true, passive: true });
     });
   </script>
 
